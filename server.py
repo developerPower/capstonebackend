@@ -7,12 +7,16 @@ from ultralytics.utils.plotting import Annotator, colors
 from collections import defaultdict
 import tempfile
 import os
+import time
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+while True:
+    time.sleep(20)  # Adjust the duration as needed
+
 # Load YOLOv8 defect detection model
-model_defect = YOLO('best.pt')
+model_defect = YOLO('...')
 track_history = defaultdict(lambda: [])
 
 @app.route('/detect', methods=['POST'])
